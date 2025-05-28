@@ -61,7 +61,7 @@ function updateArticle(req, res) {
     if (article) {
       if (journalistId) {
         const journalistIdValid = journalists.findIndex(
-          (journalist) => journalist.id === journalistId
+          (journalist) => journalist.id === Number(journalistId)
         );
         if (journalistIdValid === -1)
           return res
@@ -71,7 +71,7 @@ function updateArticle(req, res) {
       }
       if (categoryId) {
         const categoryIdValid = categories.findIndex(
-          (category) => category.id === categoryId
+          (category) => category.id === Number(categoryId)
         );
         if (categoryIdValid === -1)
           return res.status(400).send(`Invalid CategoryID: "${categoryId}"`);
