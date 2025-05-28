@@ -78,10 +78,10 @@ function updateArticle(req, res) {
         article.categoryId = categoryId;
       }
       if (title) {
-        if (title.trim() > 0) article.title = title.trim();
+        if (title.trim().length > 0) article.title = title.trim();
       }
       if (content) {
-        if (content.trim() > 0) article.content = content.trim();
+        if (content.trim().length > 0) article.content = content.trim();
       }
       return res.status(202).json(article);
     } else {
