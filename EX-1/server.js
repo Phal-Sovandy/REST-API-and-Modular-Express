@@ -1,13 +1,13 @@
 import express from "express";
-import userRoutes from './routes/userRoute.js';
-import logger from './middleware/logger.js';
-import validator from './middleware/validator.js';
+import userRoutes from "./routes/userRoute.js";
+import logger from "./middleware/logger.js";
+import validator from "./middleware/validator.js";
 
 const app = express();
-app.use(express.json());
 
-app.use([validator, logger]);
-app.use('/users', userRoutes);
+app.use(express.json());
+app.use(logger);
+app.use("/users", userRoutes);
 
 // Start the server
 const PORT = 3000;

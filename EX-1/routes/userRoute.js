@@ -1,4 +1,5 @@
 import express from 'express';
+import validator from '../middleware/validator.js';
 import {
   getAllUsers,
   getAUser,
@@ -9,7 +10,8 @@ import {
 
 const userRoutes = express.Router();
 
-userRoutes.route('/').get(getAllUsers).post(createUser);
+userRoutes.route('/').get(getAllUsers);
+userRoutes.post('/', validator, createUser)
 userRoutes.route('/:id').get(getAUser).put(updateUser).delete(deleteUser);
 
-export default users;
+export default userRoutes;
